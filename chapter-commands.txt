@@ -1,0 +1,36 @@
+-- Chapter 1 --
+
+ls
+ - List
+cd
+ - Change Directory
+pwd
+ - Print Working Directory
+history
+ - Print most recent list of commands
+whoami
+ - displays the user currently logged in
+who
+ - Shows the users currently logged in to the system.
+echo
+ - Echo the arguments provided, using > will write a new file or over an existing, and >> will append to an existing file
+more
+ - Similar to cat, but dumps out one page at a time, instead of the whole file.
+man
+ - Manual pages, to learn more about a command
+ - Section 1: Commands any user can run.
+ - Section 2: System Calls
+ - Section 3: Library Functions
+ - Section 4: Special Files
+ - Section 5: Configuration File formats/
+ - Section 6: Games
+ - Section 7: Miscellaneous
+ - Section 8: Administrative User Commands.
+whatis
+ - search man pages, searches only the command field for an exact match.
+apropos
+ - search man pages on both the command field and the short description field for any match.
+ | 
+ - the pipe command, sends the output of the first command to the command on the other side of the pipe.
+
+-- Chapter 2 --
