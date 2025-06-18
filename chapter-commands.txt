@@ -65,3 +65,52 @@ type
  - before creating an alias (or a variable probably), use type to find out if the proposed alias name is in use, syntax: type -a <proposed_alias_name>.
 
 
+locale
+ - locale settings are used to define output formats used by applications depending on the location of the computer
+
+localectl list-locales
+ - lists available locale names
+
+localectl
+ - used to view and modify system locale and keyboard settings
+
+date
+ - reporting information from and managing the system clock
+syntax:  date +%<flag>
+ %A - Full Weekday name
+ %D - Date, same as %m/%d/%y
+ %F - Full date; same as %Y-%m-%d
+ %N - Nanosecond
+ %d - Day of the Month
+ %j - Day of the year
+ %x - Date representation (eg., 12/31/25)
+
+Time Zone Files:
+ - /usr/share/zoneinfo
+ - /etc/localtime
+    - Both are used to configure a system's time zone: date, date +%Z, ls -l /etc/localtime, and timedatectl display the currennt system time zone
+
+hwclock
+ - manages the RTC (Real Time Clock), variants: hwclock, hwclock -r, hwclock --show
+
+timedatectl and timedatectl status
+ - view and manage system clocks
+
+timedatectl list-timezones
+ - displays a list of time zones
+
+timedatectl set-timezone "<time zone>" changes the system-wide time zone
+
+Bash Configuration Files:
+/etc/profile
+ - system wide configuration files
+ - Contains commands used to configure user's working environment
+/etc/bashrc
+ - system-wide configuration files
+/home/<user_name>/.bash_profile
+ - Contains commands used to configure user's working environment
+/home/<user_name>/.bashrc
+ - used to configure Bash Shell features
+/home/<user_name>/.bash_logout
+ - Used to configure Bash Shell features, specifically used to perform operations on logout
+       
