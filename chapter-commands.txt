@@ -33,4 +33,35 @@ apropos
  | 
  - the pipe command, sends the output of the first command to the command on the other side of the pipe.
 
+
 -- Chapter 2 --
+vi and vim commands and navigation
+
+-- Chapter 3 --
+
+
+set
+ - displays a list of all the shell variables and functions in the current process.
+
+Shell Variable - exists only in the memory space of the shell in which it was created.
+ - syntax:  <variable_name>=<variable_value>
+ - to view contents of a variable:  echo $<variable_name>
+Environment Variable - are visible to child processes, to convert a shell variable to an environment varible, an 'export' attribute needs to be assigned to the variable.
+
+export
+ - create environment variable, syntax:  export <variable_name>=<value>
+
+unset
+ - deletes the variable and removes it from the environment.
+
+declare
+ - displays the variable's properties, syntax:  declare -p <variable_name>  
+ - a '-x' in the properties section of the output signifies that it's an environment variable.
+
+alias
+ - Command shortcut, syntax:  alias <alias_name>='<command>'
+
+type
+ - before creating an alias (or a variable probably), use type to find out if the proposed alias name is in use, syntax: type -a <proposed_alias_name>.
+
+
