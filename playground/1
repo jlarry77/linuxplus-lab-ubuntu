@@ -1,4 +1,0 @@
-ls: cannot access '/roses': No such file or directory
-ls: cannot access 'file3': No such file or directory
-ls: cannot access '2': No such file or directory
-drwxr-xr-x 108 root root 4096 Jun 18 19:00 /etc

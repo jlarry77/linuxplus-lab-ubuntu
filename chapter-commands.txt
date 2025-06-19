@@ -113,4 +113,39 @@ Bash Configuration Files:
  - used to configure Bash Shell features
 /home/<user_name>/.bash_logout
  - Used to configure Bash Shell features, specifically used to perform operations on logout
-       
+
+Redirection:
+heredocs <<
+ - reads each input line from current input source until it reaches the 'limit word', which may be any word the user chooses
+ - syntax (the example below will print out each line):  
+   $ cat << RNDI
+   > dummy
+   > character
+   > RNDI
+   dummy
+   character
+   $      
+ 
+Redirect stdout with > and >>
+ - > 
+    will create or overwrite an existing file
+ - >> 
+    will append to or create a file
+
+Redirect stderr wtih 2>:
+ - 2> and 2>>
+    selects an alternate standard error file to write or append to  
+
+ - 2>&1
+    redirects standard error to the same location as standard output
+    2> designates altering the data stream for error messages
+    & is a boolean operator
+    1 is the file descriptor number for the standard input device
+ - 1>&2
+    redirects the standard output to the same location as the standard error
+
+ - &>
+    redirects both standard error and standard output to the same file
+
+ | 
+   - unnamed pipe:  uses the output from the command to the left of the pipe as the input to the command on the right side of the pipe by creating a temporary file that Linux automatically removes.
