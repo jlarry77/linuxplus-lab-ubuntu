@@ -240,4 +240,7 @@ userdel <username>
 	- remove a user account, removes user's record from /etc/shadow and /etc/passwd, but home directory and files remain intact
 	- userdel -r <username> removes user's shadow and passwd files
 
- 
+groupadd - add groups to system
+gpasswd  - set group password
+groupmod - modify group information
+groupdel - deprovision the group
