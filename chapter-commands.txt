@@ -1,4 +1,4 @@
--- Chapter 1 --
+-- Chapter 1: An Introduction to Linux --
 
 ls
  - List
@@ -34,10 +34,15 @@ apropos
  - the pipe command, sends the output of the first command to the command on the other side of the pipe.
 
 
--- Chapter 2 --
+
+
+-- Chapter 2: Using the vi Editor --
+
 vi and vim commands and navigation
 
--- Chapter 3 --
+
+
+-- Chapter 3: Working with the Linux Shell --
 
 
 set
@@ -149,3 +154,90 @@ Redirect stderr wtih 2>:
 
  | 
    - unnamed pipe:  uses the output from the command to the left of the pipe as the input to the command on the right side of the pipe by creating a temporary file that Linux automatically removes.
+
+
+-- Chapter 4: Managing Linux Users and Groups --
+
+DAC - Discretionary Access Control - permit or restrict access to files
+
+UID_MIN & UID_MAX - system variables that specify the range of user ids
+
+/etc/login.defs - file that defines new user defaults
+
+System Account - linux service/applications may have account IDs, typically between 0-99, with no password, no home directory, and no log in
+
+/etc/passwd - flat file database that contains 7-field unique user records, delimited by colons
+  format:  
+        user_name:password:UID:GID:comment:home_directory:default_shell
+
+/etc/shadow - flat-file database that stores user passwords and password aging expirations, each /etc/passwd record should have a corresponding /etc/shadow record
+
+/etc/group and /etc/gshadow - group information is stored in group, and group passwords are stored in gshadow
+
+w
+  - displays user ID of all logged-on users
+
+who
+  - similar to 'w' command, but doesn't display the processes that are executing
+
+su
+  - switch user, assume the privileges of another user by switching their user ID and group ID
+
+su - <username>
+  - su "dash" allows user to become exactly like the new user
+
+id <username>
+  - displays user ID, primary group ID, and secondary groups for the user specified in the argument
+
+tty
+  - 'teletypewriter' - the name of the treminal or pseudo-terminal currently in use
+
+useradd
+  - create a new user
+  options:
+	-c  change the user comment
+	-e  specify the date when the user account will be disabled
+	-g  specify the user's primary group
+	-G specify the user's secondary group memberships, you can add more than one by separating the groups with commas
+	-d  Location of user's home dir
+	-m  Creates the home directory
+	-r  specifies that the user being created is a system user
+	-s  absolute path to the default shell for the user
+	-u  Allows admin to manually specify a user ID
+	useradd -D
+		view the values currently set for an existing user
+
+/etc/skel - default directory that contains the files and directories copied to a new user's home directory
+
+passwd
+	- allows root or current user to change password, and allows system admin to manage password aging
+
+passwd <username> 
+	- allows root to change a user's password
+	-l  locks user account
+	-u  unlocks user account
+	-n  sets MIN_DAYS req'd before password can be changed
+	-x  sets MAX_DAYS req'd before password change
+	-w  set warning in # of days before expiration
+	-i  set inactive days after pw expiration before account is disabled
+	-S  display password aging information
+	-e <username>  force user to change their password at next login
+
+chage
+  - change aging command, allows you to view or alter a user's password aging infomation
+	chage -l <username>   -> displays user's aging information
+
+usermod
+	- modify an existing user account
+
+	-G <group_name>  remove all secondary groups and replace with a new secondary group or list (comma delimited)
+	-aG  add new secondary group
+	-l  changes user's logon/username
+	-d  change location of user's home directory
+	-m  moves/renames current suer's home directory to the new user's name
+
+userdel <username>
+	- remove a user account, removes user's record from /etc/shadow and /etc/passwd, but home directory and files remain intact
+	- userdel -r <username> removes user's shadow and passwd files
+
+ 
