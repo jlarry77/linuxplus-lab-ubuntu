@@ -244,3 +244,15 @@ groupadd - add groups to system
 gpasswd  - set group password
 groupmod - modify group information
 groupdel - deprovision the group
+
+-- Chapter 5 - Managing Linux Files and Directories --
+filesystem - Controls how data is managed on a hard disk
+FHS - File System Heirarchy - Defines a suggested logical location of directories and files on Linux/Unix distributions
+
+ls
+ - shows a list of filenames and directories
+	-a  displays all files
+	-l  long listing, lists permissions, number of links, user and group owners, file size, modification time, and file name
+	-R  recursive -> contents of all subdirectories
+	-i  inode a filename belongs to
+
