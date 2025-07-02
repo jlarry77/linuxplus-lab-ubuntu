@@ -256,3 +256,49 @@ ls
 	-R  recursive -> contents of all subdirectories
 	-i  inode a filename belongs to
 
+filename - designated by user or application and assigned an...
+inode number (index number) - filesystem assigns this number, which is used by the OS to access files and their information, holds a files metadata
+			    - permissions, numbers of links, user and group owners, file size, time stamps, and data pointers, but NOT filename
+
+touch
+ - create a file or update an existing files timestamp
+
+stat
+ - lists the file's birth, permissions, number of links, device, user ID, gruop ID, file size and SELinux settings
+
+hard link - associates the file's name with the file's inode, to create additional hard links, use 'ln', only work within the same file system
+
+ln
+ - create additional hard links
+
+symbolic links / soft links - reference a file in the same filesystem, another filesystem, directories, or across a network
+	- Each symbolic link has it's own inode number, unlike hard links, which share the same inode
+
+ln -s <source_file> <destination_file>
+	- symbolic link command
+
+mkdir
+ - make directory
+	-p  creates a directory tree
+
+magic number - when most files are created, the first several bytes of the file contain the file signature - aka, the magic number - which indicates the type of content stored in the file
+
+file
+ - compares a file's magic number / file signature with databases of files signatures, located in: /usr/share/misc/magic, /usr/share/misc/magic.mgc, /etc/magic to determine it's type
+
+head
+ - by default, will show the first ten lines of a file
+	-n  this option allows the user to show the first 'n' lines of a file: head -n 50 <file_name> -> where 50 = 'n'
+
+tail
+ - by default, shows the last ten lines of a file
+	-  this option allows the user to show the last 'n' lines of a file: tail -n 20 <file_name>  -> where 20 = 'n'
+
+rm
+ - remove/delete files
+	-i  interactive, requires user confirmation before deletion
+	-r or -R  recursively delete directory, it's contents and sub-directories
+
+cp
+
+mv 
