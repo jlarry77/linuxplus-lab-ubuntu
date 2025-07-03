@@ -350,7 +350,32 @@ xargs
 
 aliases, which, whereis, hash, type -> not included in Comptia Exam.
 
+grep
+ - used to search for specific content within a file, by default it will return the line on which the string is found
+	$ grep <option> <string>
+  Metacharacters:
+	*  matches preceding character 0 or more times
+	\  makes teh next metacharacter a literal
+	?  Matches preceding character zero or 1 time
+	^<string>  matches string at the beginning of a line
+	<string>$ matches string at the end of a line
+	.  matches any single character
+	+  matches one or more of the previous characters
+	[abc]  matches any character in the current range
+	[^abc]  matches any character NOT within the range
+	[a-z] matches any since character in the range
 
+	-n  will display the number of the line on which the string was found
+	-i  Ignores case when searching
+	-l  only displays the filename in which a string occurs
+	-r  recursive search through subdirectories
+	-v  displays lines that DON'T contain the search string
+	-E  replacement for 'egrep', with more metacharacters
+		{n}	matches 'n' occurences of the previous character:  $ egrep fog1{2} -> matches fog11
+		{n,m}	matches minimum of 'n' and maximum of 'm' occurences
+		{n,}	matches 'n' or more occurences of previous character
+		{,m}	matches 'm' or less occurences of previous charact
+		|	OR, matches the string on the left or right, multiple 'ors' may be placed together: $ egrep 'fog1|fog2' -> matches fog1 or fog2
 
 
 
