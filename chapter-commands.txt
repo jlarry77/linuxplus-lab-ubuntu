@@ -301,4 +301,56 @@ rm
 
 cp
 
-mv 
+mv
+
+find
+ - search for files through 'brute force' instead of searching a pre-allocated database, searches recursively by default, if no directory is specified, current directory is default
+  	find <start_directory> <expression>
+ 
+	-name  matches name of file
+	-size  matches file size:
+		b  blocks
+		c  bytes
+		w  word
+		k  kilobytes
+		M  Megabytes
+		G  Gigabytes
+	-type  matches type of file:
+		-f  regulare text file
+		-d  directory
+		-l  symbolic link
+		-p  named pipe
+	-inum <number>  matches file  with specific inode number
+	-user  matches owner of file
+	-group  matches group owner
+	-perm  matches file permission
+	-readable / -writeable / -executable  matches files that have specified permission set
+	
+	-a  and
+	-not not
+	-o or
+	-exec  takes standard output from the 'find' expression and input it into specified command
+	-ok  executes the command but requires user confirmation
+
+{} 
+ - can be used as a placeholder for the standard output of the find command, which becomes the standard input of the command executed by -exec or -ok
+
+xargs
+ - reads whitespace-delimited input and executes a command on each input (space, tab, newline)
+	Example:
+		$ echo file{a,b,c}
+		$ ls -l file*
+		# filea fileb filec
+		$ ls file* | xargs -I {} mv {} test.{}
+		$ ls test.*
+		# test.filea test.fileb test.filec
+
+	In the example above, ls request all the files that match file* (which are filea fileb filec), xargs places the argument in the first set of {} with xargs -I, then
+		executes the mv command to on the placeholder, the second set of {}, moves them to test.{} where filea becomes test.filea, the '-I' is the string replacement option
+
+aliases, which, whereis, hash, type -> not included in Comptia Exam.
+
+
+
+
+
